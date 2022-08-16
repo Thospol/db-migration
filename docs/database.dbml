@@ -1,0 +1,32 @@
+Project FoodDelivery {
+  database_type: 'MySQL'
+  Note: '''
+    # FoodDelivery Database
+    **markdown content here**
+  '''
+}
+
+Table users {
+  id bigint [pk, increment, not null, note:'ไอดี']
+  created_at datetime [not null,  note: 'วันเวลาที่สร้าง']
+  updated_at datetime [not null,  note: 'วันเวลาที่อัพเดตล่าสุด']
+  deleted_at datetime [note: 'วันเวลาที่ลบ']
+  name varchar [note: 'ชื่อ']
+  surname varchar [note: 'นามสกุล']
+  email varchar [note: 'อีเมล']
+  phone_number varchar [note: 'เบอร์โทรศัพท์']
+  id_card varchar [note: 'บัตรประชาชน']
+  password varchar [note: 'รหัสผ่าน']
+  note: 'ข้อมูลผู้ใช้งาน'
+}
+
+Table addresses {
+  id bigint [pk, increment, not null, note:'ไอดี']
+  created_at datetime [not null,  note: 'วันเวลาที่สร้าง']
+  updated_at datetime [not null,  note: 'วันเวลาที่อัพเดตล่าสุด']
+  deleted_at datetime [note: 'วันเวลาที่ลบ']
+  address varchar [not null, note: 'ที่อยุ่']
+  description text [note: 'รายละเอียดที่อยุ่']
+  user_id bigint [not null, ref: - users.id]
+  note: 'ข้อมูลที่อยู่'
+}
